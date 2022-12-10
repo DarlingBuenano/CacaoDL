@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Welcome">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/pad_body">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mrg_entre_seccion"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/mrg_entre_elem"
+                android:text="@string/main_seccion1_titulo"
+                android:textSize="@dimen/sp_nivel_7" />
+
+            <LinearLayout
+                style="@style/style_rect_seccion01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/pad_seccion">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_imalogo"
+                    android:layout_height="@dimen/dp_imalogo"
+                    android:layout_marginRight="@dimen/mrg_entre_img_txt"
+                    android:src="@drawable/ic_launcher_sin_fondo" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/main_seccion1_descripcion" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mrg_entre_seccion"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/mrg_entre_elem"
+                android:text="@string/main_seccion2_titulo"
+                android:textSize="@dimen/sp_nivel_7" />
+
+            <LinearLayout
+                style="@style/style_rect_seccion02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/pad_seccion">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/mrg_entre_elem"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_vector_pequena"
+                            android:layout_height="@dimen/size_vector_pequena"
+                            android:layout_marginBottom="@dimen/mrg_botton_accion"
+                            android:src="@drawable/vector_tome_una_foto" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_seccion2_accion1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_vector_pequena"
+                            android:layout_height="@dimen/size_vector_pequena"
+                            android:layout_marginBottom="@dimen/mrg_botton_accion"
+                            android:src="@drawable/vector_vea_el_diagnostico" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_seccion2_accion2"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_vector_pequena"
+                            android:layout_height="@dimen/size_vector_pequena"
+                            android:layout_marginBottom="@dimen/mrg_botton_accion"
+                            android:src="@drawable/vector_obtenga_tratamientos" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_seccion2_accion3"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_tomar_una_foto"
+                    style="@style/style_rect_btn_primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="clicTomarUnaFoto"
+                    android:text="@string/main_seccion2_boton1" />
+
+                <Button
+                    android:id="@+id/btn_subir_una_foto"
+                    style="@style/style_rect_btn_primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/mrg_entre_elem"
+                    android:onClick="clicSubirFotoDesdeGaleria"
+                    android:text="@string/main_seccion2_boton2" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mrg_entre_seccion"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_seccion3_titulo"
+                android:textSize="@dimen/sp_nivel_7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/mrg_entre_elem"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btn_ver_todas_las_imagenes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/main_seccion3_accion1"
+                    android:textColor="@color/azul_claro" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/size_img_pequena"
+                    android:layout_height="@dimen/size_img_pequena"
+                    android:layout_marginRight="@dimen/mrg_mediano"
+                    android:src="@drawable/foto_cuadrada_ejemplo" />
+
+                <ImageView
+                    android:layout_width="@dimen/size_img_pequena"
+                    android:layout_height="@dimen/size_img_pequena"
+                    android:layout_marginRight="@dimen/mrg_mediano"
+                    android:src="@drawable/foto_cuadrada_ejemplo" />
+
+                <ImageView
+                    android:layout_width="@dimen/size_img_pequena"
+                    android:layout_height="@dimen/size_img_pequena"
+                    android:layout_marginRight="@dimen/mrg_mediano"
+                    android:src="@drawable/foto_cuadrada_ejemplo" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

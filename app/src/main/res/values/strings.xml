@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Cacao DL</string>
+
+    <!--Guía de bienvenida-->
+    <string name="guia_pag1_titulo">Chequeo de salud</string>
+    <string name="guia_pag1_descripcion">Tome una fotografía de las mazorcas de su cultivo para identificar enfermedades</string>
+    <string name="guia_pag2_titulo">Diagnóstico y tratamiento</string>
+    <string name="guia_pag2_descripcion">Reciba un diagnóstico de la enfermedad y sugerencias de como tratarla</string>
+
+    <!--Main o actividad principal-->
+    <!--Seccion 1-->
+    <string name="main_seccion1_titulo">@string/app_name</string>
+    <string name="main_seccion1_descripcion">Cacao DL es un doctor de cultivos de cacao: con solo una foto, Cacao DL diagnostica la mazorca y ofrece sugerencias y tratamientos para la plaga o enfermedad identificada.</string>
+    <!--Seccion 2-->
+    <string name="main_seccion2_titulo">Sane su cultivo</string>
+    <string name="main_seccion2_accion1">Tome una foto</string>
+    <string name="main_seccion2_accion2">Vea el diagnóstico</string>
+    <string name="main_seccion2_accion3">Obtenga tratamientos</string>
+    <string name="main_seccion2_boton1">Tomar una foto</string>
+    <string name="main_seccion2_boton2">Subir foto desde galeria</string>
+    <!--Seccion 3-->
+    <string name="main_seccion3_titulo">Fotos anteriores</string>
+    <string name="main_seccion3_accion1">Ver todo</string>
+
+    <!--Estado de salud de la mazorca-->
+    <!--Seccion 1-->
+    <string name="estado_seccion1_titulo">Estado de salud de la mazorca</string>
+    <!--Seccion 2-->
+    <string name="estado_seccion2_titulo">Probabilidades</string>
+    <!--Seccion 3-->
+    <string name="estado_seccion2_accion1">Ver detalles</string>
+    <string name="estado_seccion2_accion2">Intentar de nuevo</string>
+
+    <string name="btn_iniciar">Iniciar</string>
+
+    <!--Diagnóstico de la mazorca-->
+    <string name="diagnostico_seccion1_accion2">No es el resultado</string>
+    <string name="diagnostico_seccion2_titulo">Título del estado de salud</string>
+    <string name="diagnostico_seccion2_subtitulo1">Hongo</string>
+    <!--Seccion 3-->
+    <string name="diagnostico_seccion3_cant_fotos">3 fotos</string>
+
+    <!--Fotos anteriores-->
+    <string name="fotos_seccion1_titulo">Fotos anteriores</string>
+    <string name="fotos_card_accion1">Eliminar</string>
+
+    <string name="link_web">Visitar sitio web</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

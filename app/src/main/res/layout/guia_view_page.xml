@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde_medio"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/img_guia_pag_svg"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:src="@drawable/vector_guia_pag01"
+        android:background="@color/verde_claro"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/indicador_guia_pag01"
+            style="@style/style_circulo_guia"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/indicador_guia_pag02"
+            style="@style/style_circulo_guia"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txt_guia_pag_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/pad_input"
+        android:textAlignment="center"
+        android:textSize="@dimen/sp_nivel_8"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/guia_pag1_titulo"/>
+    <TextView
+        android:id="@+id/txt_guia_pag_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/pad_input"
+        android:textAlignment="center"
+        android:textSize="@dimen/sp_nivel_4"
+        android:text="@string/guia_pag1_descripcion"/>
+
+    <Button
+        android:id="@+id/btn_terminar_guia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/btn_iniciar"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        android:onClick="clicTerminarGuiaDeBienvenida"/>
+</LinearLayout>

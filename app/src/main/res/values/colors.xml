@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="verde_claro">#dbe6de</color>
+    <color name="verde_medio">#c5decb</color>
+    <color name="verde_oscuro">#009544</color>
+    <color name="naranja">#DC5621</color>
+    <color name="azul">#0158db</color>
+    <color name="azul_claro">#0158DB</color>
+    <color name="blanco">#ffffff</color>
+    <color name="gris_border">#C2C2C2</color>
+    <color name="gris_fondo">#E6E6E6</color>
+    <color name="gris_btn">#dbdbdb</color>
+
+    <color name="app_texto">#252525</color>
+    <color name="texto_claro">#606060</color>
+    <color name="app_fondo">#f7f7f7</color>
+
+    <color name="button_fondo">#dbdbdb</color>
+</resources>
