@@ -375,6 +375,18 @@ public class Camara extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Log.e(TAG, "onStart");
+        startBackgroundThread();
+        if (textureCamara.isAvailable()) {
+            openCamera();
+        } else {
+            textureCamara.setSurfaceTextureListener(textureListener);
+        }
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         Log.e(TAG, "onResume");
