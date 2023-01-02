@@ -1,9 +1,8 @@
 package software.cacaodl.modelos;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.view.Display;
+import android.graphics.RectF;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.modeldownloader.CustomModel;
@@ -28,27 +27,26 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.List;
-import java.util.Map;
 
 import software.cacaodl.ml.ModelCacaodl;
-import software.cacaodl.ml.ModelFlower;
+import software.cacaodl.ml.ModelCacaodl2;
 
 public class ModelTFLite {
     private Context contexto;
     private Bitmap imagen;
     private Interpreter interpreter;
     private static final int efficientnet_lite4 = 300;
+    private static final int tamaño_imagen = 640;
     private JSONArray jsonArrayProbabilidades;
 
     public ModelTFLite(Context context, Bitmap img) {
         this.contexto = context;
-        this.imagen = img;
-        this.jsonArrayProbabilidades = new JSONArray();
+        this.imagen = img.copy(Bitmap.Config.ARGB_8888, true);;
     }
 
-    public JSONArray inferencia() {
+    public JSONArray inferencia_imageClassification() {
         this.imagen = Bitmap.createScaledBitmap(this.imagen, efficientnet_lite4, efficientnet_lite4, true);
-
+        this.jsonArrayProbabilidades = new JSONArray();
         try{
             ModelCacaodl modelo = ModelCacaodl.newInstance(this.contexto);
 
@@ -61,13 +59,11 @@ public class ModelTFLite {
 
             System.out.println("Categorias:");
             for (int x = 0; x < probability.size(); x++) {
-                System.out.println(x + ": ");
-                System.out.println("    Label: " + probability.get(x).getLabel());
-                System.out.println("    Score: " + probability.get(x).getScore());
-
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("nombre", probability.get(x).getLabel());
                 jsonObject.put("porcentaje", probability.get(x).getScore());
+
+                System.out.println(jsonObject);
                 this.jsonArrayProbabilidades.put(jsonObject);
             }
             // Libera los recursos del modelo si ya no se usan.
@@ -78,6 +74,45 @@ public class ModelTFLite {
             System.out.println(e);
         }
         return jsonArrayProbabilidades;
+    }
+
+    public JSONArray inferencia_objectdetection() {
+        this.imagen = Bitmap.createScaledBitmap(this.imagen, tamaño_imagen, tamaño_imagen, true);
+        this.jsonArrayProbabilidades = new JSONArray();
+        try {
+            ModelCacaodl2 model = ModelCacaodl2.newInstance(this.contexto);
+
+            // Creates inputs for reference.
+            TensorImage image = TensorImage.fromBitmap(this.imagen);
+
+            // Runs model inference and gets result.
+            ModelCacaodl2.Outputs outputs = model.process(image);
+            List<ModelCacaodl2.DetectionResult> detectionResultList = outputs.getDetectionResultList();
+
+            for (int i = 0; i < detectionResultList.size(); i++) {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("objeto", i);
+                jsonObject.put("categoria", detectionResultList.get(i).getCategoryAsString());
+                jsonObject.put("score", detectionResultList.get(i).getScoreAsFloat());
+
+                RectF rectangulo = detectionResultList.get(i).getLocationAsRectF();
+                jsonObject.put("left", rectangulo.left);
+                jsonObject.put("top", rectangulo.top);
+                jsonObject.put("right", rectangulo.right);
+                jsonObject.put("bottom", rectangulo.bottom);
+
+                System.out.println(jsonObject);
+                this.jsonArrayProbabilidades.put(jsonObject);
+            }
+            // Releases model resources if no longer used.
+            model.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return this.jsonArrayProbabilidades;
     }
 
     public void descargarModeloDeFirebase() {

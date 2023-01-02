@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
@@ -31,6 +32,7 @@ public class Imagen {
         File file = null;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            System.out.println("Guardando la foto con resolve");
             ContentResolver resolver = context.getContentResolver();
             ContentValues values = new ContentValues();
 
@@ -54,6 +56,7 @@ public class Imagen {
             resolver.update(imageUri, values, null, null);
         }
         else {
+            System.out.println("Guardando la foto tradicionalmente");
             File ruta = new File(Environment.getExternalStorageDirectory().toString() + "/Pictures/CacaoDL");
             if (!ruta.exists()) {
                 ruta.mkdir();
@@ -88,5 +91,9 @@ public class Imagen {
         } catch (NullPointerException ex) {
             System.out.println(ex);
         }
+    }
+
+    public void guardarFotoDeByteABitmap(byte[] bytes) {
+
     }
 }

@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     Bitmap imagenBitmap;
-    ModelTFLite model;
-    JSONArray probabilidades;
 
     private FragmentManager manager;
     private Fragment frgWelcome;
@@ -104,66 +102,27 @@ public class MainActivity extends AppCompatActivity {
         imagen.guardarFoto();
     }
 
-    private void ejecutarDeepLearning() {
-        model = new ModelTFLite(getApplicationContext(), this.imagenBitmap);
-        this.probabilidades = model.inferencia();
-    }
-
     private void abrirEstadoSalud() {
         frgEstadoSalud = new EstadoSalud(imagenBitmap);
-        Bundle args = new Bundle();
-        try {
-            args.putFloat(
-                    this.probabilidades.getJSONObject(0).getString("nombre"),
-                    (float)this.probabilidades.getJSONObject(0).getDouble("porcentaje"));
-            args.putFloat(
-                    this.probabilidades.getJSONObject(1).getString("nombre"),
-                    (float)this.probabilidades.getJSONObject(1).getDouble("porcentaje"));
-            args.putFloat(
-                    this.probabilidades.getJSONObject(2).getString("nombre"),
-                    (float)this.probabilidades.getJSONObject(2).getDouble("porcentaje"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        frgEstadoSalud.setArguments(args);
-        abrirFragment(frgWelcome, frgEstadoSalud, "frgEstadoSalud");
         guardarFoto();
+        abrirFragment(frgWelcome, frgEstadoSalud, "frgEstadoSalud");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void clicTomarUnaFoto(View view) {
         frgCamara = new Camara();
         abrirFragment(frgWelcome, frgCamara, "frgCamara");
-        /*try{
-            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE);
-            } else {
-                requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA);
-            }
-        } catch (IllegalStateException ex) {
-            Toast.makeText(this, "Hubo un error al abrir la cámara del dispositivo", Toast.LENGTH_SHORT).show();
-            System.out.println(ex);
-        }*/
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void clicSubirFotoDesdeGaleria(View view) {
-        System.out.println("clicSubirFotoDesdeGaleria");
         Intent camaraInten = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(camaraInten, REQUEST_SELECT_FILE);
-        System.out.println("abriendo onActivityResult para subir foto");
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        System.out.println("onActivityResult(....)");
-        System.out.println("requestCode:"+requestCode +", resultCode:"+resultCode +", data:"+(data!=null));
-        if (requestCode == REQUEST_IMAGE_CAPTURE) {
-            imagenBitmap = null;
-            imagenBitmap = (Bitmap) data.getExtras().get("data");
-        }
-        else if (requestCode == REQUEST_SELECT_FILE) {
+        if (requestCode == REQUEST_SELECT_FILE) {
             if (resultCode == Activity.RESULT_OK) {
                 Uri imagenSeleccUri = null;
                 imagenSeleccUri = data.getData();
@@ -182,8 +141,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
-
-        ejecutarDeepLearning();
         abrirEstadoSalud();
     }
 

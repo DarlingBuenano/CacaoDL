@@ -3,6 +3,8 @@ package software.cacaodl.fragments;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -22,6 +24,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Environment;
 import android.os.Handler;
@@ -55,8 +59,12 @@ public class Camara extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private static final String TAG = "AndroidCamera2API";
+    private static final int SIZE_IMAGE_YOLOV7 = 640;
     private Button btnOpturador;
     private TextureView textureCamara;
+    private Bitmap imagenBitmap;
+    private FragmentManager manager;
+
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -69,7 +77,6 @@ public class Camara extends Fragment {
     protected CameraCaptureSession cameraCaptureSession;
     protected CaptureRequest.Builder captureRequestBuilder;
     private Size imageDimension;
-    private ImageReader imageReader;
     private File file;
     private File folder;
     private String foldername = "/Pictures/CacaoDL";
@@ -134,6 +141,7 @@ public class Camara extends Fragment {
 
         }
     };
+
     private final CameraDevice.StateCallback stateCallback = new CameraDevice.StateCallback() {
         @Override
         public void onOpened(@NonNull CameraDevice camera) {
@@ -188,13 +196,15 @@ public class Camara extends Fragment {
                 if (characteristics != null) {
                     jpegSizes = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP).getOutputSizes(ImageFormat.JPEG);
                 }
-                int width = 300;
-                int height = 300;
+                /*int width = 300;
+                int height = 300;*/
                 if (jpegSizes != null && jpegSizes.length > 0) {
-                    width = jpegSizes[0].getWidth();
-                    height = jpegSizes[0].getHeight();
+                    //width = jpegSizes[0].getWidth();
+                    //height = jpegSizes[0].getHeight();
+                    System.out.println("Caracteristica JPEG Width de la imagen: " + jpegSizes[0].getWidth());
+                    System.out.println("Caracteristica JPEG Height de la imagen: " + jpegSizes[0].getHeight());
                 }
-                ImageReader reader = ImageReader.newInstance(width, height, ImageFormat.JPEG, 1);
+                ImageReader reader = ImageReader.newInstance(SIZE_IMAGE_YOLOV7, SIZE_IMAGE_YOLOV7, ImageFormat.JPEG, 1);
                 List<Surface> outputSurfaces = new ArrayList<Surface>(2);
                 outputSurfaces.add(reader.getSurface());
                 outputSurfaces.add(new Surface(textureCamara.getSurfaceTexture()));
@@ -209,8 +219,6 @@ public class Camara extends Fragment {
 
                 file = null;
                 folder = new File(foldername);
-                //String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                //String nombreFoto = "CacaoDL_" + timeStamp + ".jpeg";
                 String nombreFoto = "CacaoDL_" + System.currentTimeMillis() + ".jpeg";
                 file = new File(Environment.getExternalStorageDirectory().toString() + "/Pictures/CacaoDL", "/" + nombreFoto);
                 if (!folder.exists()) {
@@ -225,6 +233,7 @@ public class Camara extends Fragment {
                             ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                             byte[] bytes = new byte[buffer.capacity()];
                             buffer.get(bytes);
+                            imagenBitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                             save(bytes);
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
@@ -243,6 +252,7 @@ public class Camara extends Fragment {
                             outputStream.write(bytes);
                         } finally {
                             if (outputStream != null) {
+                                outputStream.flush();
                                 outputStream.close();
                             }
                         }
@@ -255,7 +265,11 @@ public class Camara extends Fragment {
                         super.onCaptureCompleted(session, request, result);
                         System.out.println("Imagen guardada");
                         Log.d(TAG, "Imagen guardada: " + file);
-                        createCameraPreview();
+                        //createCameraPreview();
+                        if (imagenBitmap != null)
+                            abrirEstadoSalud();
+                        else
+                            System.out.println("imagenBitmap es null");
                     }
                 };
                 cameraDevice.createCaptureSession(outputSurfaces, new CameraCaptureSession.StateCallback() {
@@ -275,6 +289,39 @@ public class Camara extends Fragment {
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void abrirEstadoSalud() {
+        Fragment frgEstadoSalud = getActivity().getSupportFragmentManager().findFragmentByTag("frgEstadoSalud");
+        frgEstadoSalud = new EstadoSalud(imagenBitmap);
+        try {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(
+                    R.anim.enter_left_to_rigth,
+                    R.anim.exit_left_to_rigth,
+                    R.anim.enter_rigth_to_left,
+                    R.anim.exit_rigth_to_left);
+            transaction.hide(this);
+            System.out.println("ocultando este fragment");
+            System.out.println("esta agregado: " + frgEstadoSalud.isAdded());
+            if (frgEstadoSalud.isAdded() == false){
+                transaction.add(R.id.frg_container_view, frgEstadoSalud, "frgEstadoSalud");
+            }
+            System.out.println("esta oculto: " + frgEstadoSalud.isHidden());
+            if (frgEstadoSalud.isHidden() == false) {
+                transaction.show(frgEstadoSalud);
+            }
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.remove(this);
+            transaction.commit();
+            /*try {
+                this.finalize();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }*/
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -378,24 +425,13 @@ public class Camara extends Fragment {
     public void onStart() {
         super.onStart();
         Log.e(TAG, "onStart");
+        System.out.println("onStart");
         startBackgroundThread();
-        if (textureCamara.isAvailable()) {
-            openCamera();
-        } else {
+        System.out.println(textureCamara.isAvailable());
+        if (!textureCamara.isAvailable()) {
             textureCamara.setSurfaceTextureListener(textureListener);
         }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.e(TAG, "onResume");
-        startBackgroundThread();
-        if (textureCamara.isAvailable()) {
-            openCamera();
-        } else {
-            textureCamara.setSurfaceTextureListener(textureListener);
-        }
+        openCamera();
     }
 
     @Override
