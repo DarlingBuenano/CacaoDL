@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Tamaño de la fuente-->
+    <dimen name="sp_app_name">22sp</dimen>
+    <dimen name="sp_nivel_0">10sp</dimen>
+    <dimen name="sp_nivel_1">11sp</dimen> <!--Descripcion de fotos-->
+    <dimen name="sp_nivel_2">12sp</dimen>
+    <dimen name="sp_nivel_3">14sp</dimen> <!--Párrafo-->
+    <dimen name="sp_nivel_4">16sp</dimen> <!--Subtítulos-->  <!--Descripcion de guia de bienvenida-->
+    <dimen name="sp_nivel_5">18sp</dimen>
+    <dimen name="sp_nivel_6">20sp</dimen> <!--Títulos-->
+    <dimen name="sp_nivel_7">22sp</dimen>
+    <dimen name="sp_nivel_8">24sp</dimen> <!--Título de guia de bienvenida-->
+
+    <!--Padding-->
+    <dimen name="pad_body">20dp</dimen>
+    <dimen name="pad_input">15dp</dimen>
+    <dimen name="pad_button">15dp</dimen>
+    <dimen name="pad_seccion">15dp</dimen>
+    <dimen name="pad_btn_acciones">5dp</dimen>
+
+    <!--Margin-->
+    <dimen name="mrg_entre_elem">15dp</dimen>
+    <dimen name="mrg_entre_seccion">25dp</dimen>
+    <dimen name="mrg_entre_img_txt">10dp</dimen>
+    <dimen name="mrg_botton_accion">10dp</dimen>
+    <dimen name="mrg_pequeno">5dp</dimen>
+    <dimen name="mrg_mediano">10dp</dimen>
+    <dimen name="mrg_grande">15dp</dimen>
+
+    <!--Radio-->
+    <dimen name="rd_img_carousel">10dp</dimen>
+
+    <!--Button-->
+
+    <!--Imagen de Carousel-->
+    <dimen name="w_img_carousel">170dp</dimen>
+    <dimen name="h_img_carousel">170dp</dimen>
+
+    <!--Imagen de Fotos anteriores-->
+    <dimen name="w_img_fotos_anteriores">120dp</dimen>
+    <dimen name="h_img_fotos_anteriores">120dp</dimen>
+
+    <!--Imagen de Carousel-->
+    <dimen name="size_img_pequena">100dp</dimen>
+
+    <!--Vector de acciones-->
+    <dimen name="size_vector_pequena">65dp</dimen>
+
+    <!--Vectores simbolicos-->
+    <dimen name="size_vector_enfoque">25dp</dimen>
+
+    <!--Imalogo-->
+    <dimen name="dp_imalogo">90dp</dimen>
+</resources>

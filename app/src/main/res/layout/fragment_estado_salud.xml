@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.EstadoSalud">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/pad_body">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mrg_entre_elem"
+            android:text="@string/estado_seccion1_titulo"
+            android:textSize="@dimen/sp_nivel_7" />
+
+        <ImageView
+            android:id="@+id/img_estado_salud"
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            android:src="@drawable/foto_cuadrada_ejemplo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mrg_entre_seccion"
+            android:layout_marginBottom="@dimen/mrg_entre_elem"
+            android:text="@string/estado_seccion2_titulo"
+            android:textSize="@dimen/sp_nivel_7" />
+
+        <TextView
+            android:id="@+id/probabilidad_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_nivel_5"
+            android:text="Objeto"/>
+
+        <Button
+            android:id="@+id/btn_ver_detalles"
+            style="@style/style_rect_btn_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mrg_entre_seccion"
+            android:onClick="clicVerDetalles"
+            android:text="@string/estado_seccion2_accion1" />
+
+        <Button
+            android:id="@+id/btn_intentar_de_nuevo"
+            style="@style/style_rect_btn_secundary"
+            app:backgroundTint="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clicIntentarDeNuevo"
+            android:layout_marginTop="@dimen/mrg_entre_elem"
+            android:text="@string/estado_seccion2_accion2" />
+
+    </LinearLayout>
+
+</FrameLayout>

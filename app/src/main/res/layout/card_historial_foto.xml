@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/app_fondo"
+    app:cardElevation="0dp"
+    android:layout_marginBottom="@dimen/mrg_pequeno">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/size_vector_enfoque"
+            android:layout_height="@dimen/size_vector_enfoque"
+            android:src="@drawable/vector_enfoque_mazorca" />
+
+        <ImageView
+            android:id="@+id/img_foto_card"
+            android:layout_width="@dimen/w_img_fotos_anteriores"
+            android:layout_height="@dimen/h_img_fotos_anteriores"
+            android:layout_marginLeft="@dimen/mrg_mediano"
+            android:src="@drawable/foto_cuadrada_ejemplo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/mrg_mediano">
+
+            <TextView
+                android:id="@+id/txt_estado_salud_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moniliasis" />
+
+            <TextView
+                android:id="@+id/txt_fecha_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mrg_mediano"
+                android:text="5 nov. 2022" />
+
+            <Button
+                android:id="@+id/btn_eliminar_card"
+                style="@style/style_rect_btn_eliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mrg_mediano"
+                app:backgroundTint="@null"
+                android:text="@string/fotos_card_accion1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

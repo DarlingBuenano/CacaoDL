@@ -1,0 +1,75 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.CacaoDL" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/azul</item>            <!--Color para los botones-->
+        <item name="colorPrimaryVariant">@color/blanco</item>   <!--Color para la fuente del boton primary-->
+        <item name="colorOnPrimary">@color/blanco</item>        <!--Color para la fuente cuando el primario esta seleccionado-->
+
+        <item name="colorSecondary">@color/verde_oscuro</item>  <!--Color para botones flotantes, check, radiobutton, etc-->
+        <item name="colorSecondaryVariant">@color/blanco</item> <!--Color de letra para el Secundary-->
+        <item name="colorOnSecondary">@color/blanco</item>      <!--Color de letra cuando el Secundary esta seleccionado-->
+
+        <item name="android:textColor">@color/app_texto</item>  <!--Color de letra para textos, etc-->
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/sp_nivel_4</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:colorBackground">@color/app_fondo</item>
+    </style>
+
+    <style name="style_circulo_guia">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:background">@drawable/shape_circulo_peque</item>
+    </style>
+
+    <style name="style_rect_seccion01">
+        <item name="android:background">@drawable/shape_border_gris_10</item>
+    </style>
+
+    <style name="style_rect_seccion02">
+        <item name="android:background">@drawable/shape_fondo_gris_10</item>
+    </style>
+
+    <style name="style_rect_btn_primary">
+        <item name="android:background">@drawable/shape_btn_radio_50</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <style name="style_rect_btn_secundary">
+        <item name="android:background">@drawable/shape_btn_gris_radio_50</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/app_texto</item>
+    </style>
+
+    <style name="style_rect_btn_eliminar">
+        <item name="android:background">@drawable/shape_btn_naranja_50</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">35dip</item>
+    </style>
+
+    <style name="style_rect_blanco_seccion_detalle">
+        <item name="android:background">@drawable/shape_seccion_blanco</item>
+    </style>
+
+    <style name="style_rect_verde_item">
+        <item name="android:background">@drawable/shape_rect_verde_item</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <style name="style_link_web">
+        <item name="android:textColor">@color/azul_claro</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:gravity">end</item>
+    </style>
+</resources>
