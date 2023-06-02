@@ -45,6 +45,7 @@ public class EstadoSalud extends Fragment {
     NumberFormat format;
     private Uri uriImage;
     private static final int tamaño_imagen = 640;
+    private int claseId;
 
     ModelTFLite model;
     JSONArray probabilidadesJson;
@@ -89,7 +90,7 @@ public class EstadoSalud extends Fragment {
     }
 
     private final View.OnClickListener onCLicVerDiagnostico = view -> {
-        Fragment frgDiagnostico = new Diagnostico();
+        Fragment frgDiagnostico = new Diagnostico(claseId);
         abrirFragment(this, frgDiagnostico, "frgDiagnostico");
     };
 
@@ -123,10 +124,22 @@ public class EstadoSalud extends Fragment {
         probabilidadesJson = model.inferencia_objectdetection();
 
         String resultado = "";
-
         try {
+            String clase = probabilidadesJson.getJSONObject(0).getString("categoria");
+            switch (clase){
+                case "fitoftora":
+                    claseId = 0;
+                    break;
+                case "monilia":
+                    claseId = 1;
+                    break;
+                case "sana":
+                    claseId = 3;
+                    break;
+            }
+
             for (int i = 0; i < probabilidadesJson.length(); i++) {
-                resultado = resultado + "Objeto: 0" + i;
+                resultado = resultado + "Objeto: 0" + i+1;
                 resultado = resultado + "\n    Categoría: " + probabilidadesJson.getJSONObject(i).getString("categoria");
                 //String confianza = format.format(probabilidadesJson.getJSONObject(0).getString("confianza"));
                 resultado = resultado + "\n    Confianza: " + probabilidadesJson.getJSONObject(i).getString("confianza");
