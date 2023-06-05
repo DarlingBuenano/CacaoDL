@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -50,6 +50,7 @@
                 android:textSize="@dimen/sp_nivel_7" />
 
             <TextView
+                android:id="@+id/txt_hongo_estado_salud"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mrg_pequeno"
@@ -70,18 +71,21 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_estado_salud_carouse1"
                         android:layout_width="@dimen/w_img_carousel"
                         android:layout_height="@dimen/h_img_carousel"
                         android:layout_marginRight="10dp"
                         android:src="@drawable/foto_cuadrada_ejemplo" />
 
                     <ImageView
+                        android:id="@+id/img_estado_salud_carouse2"
                         android:layout_width="@dimen/w_img_carousel"
                         android:layout_height="@dimen/h_img_carousel"
                         android:layout_marginRight="10dp"
                         android:src="@drawable/foto_cuadrada_ejemplo" />
 
                     <ImageView
+                        android:id="@+id/img_estado_salud_carouse3"
                         android:layout_width="@dimen/w_img_carousel"
                         android:layout_height="@dimen/h_img_carousel"
                         android:src="@drawable/foto_cuadrada_ejemplo" />
@@ -103,34 +107,39 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/pad_body">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
                 <TextView
                     style="@style/style_rect_verde_item"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:text="1"/>
+                    android:text="1" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/mrg_pequeno"
-                    android:text="Diagnóstico"/>
+                    android:text="Diagnóstico" />
             </LinearLayout>
+
             <TextView
                 android:id="@+id/txt_diagnostico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mrg_entre_elem"
-                android:text="@string/main_seccion1_descripcion"/>
+                android:text="@string/main_seccion1_descripcion" />
+
             <TextView
                 android:id="@+id/btn_link_diagnostico_frg_diag"
                 style="@style/style_link_web"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/link_web"/>
+                android:text="@string/link_web" />
         </LinearLayout>
 
         <LinearLayout
@@ -152,10 +161,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/mrg_pequeno"
-                    android:text="Tratamiento"/>
+                    android:text="Síntomas"/>
             </LinearLayout>
             <TextView
-                android:id="@+id/txt_tratamiento"
+                android:id="@+id/txt_sintomas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mrg_entre_elem"
@@ -167,5 +176,35 @@
                 android:layout_height="wrap_content"
                 android:text="@string/link_web"/>
         </LinearLayout>
+
+        <LinearLayout
+            style="@style/style_rect_blanco_seccion_detalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/pad_body">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    style="@style/style_rect_verde_item"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:text="3"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/mrg_pequeno"
+                    android:text="Medidas de prevención"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/txt_medidas_prevencion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mrg_entre_elem"
+                android:text="@string/main_seccion1_descripcion"/>
+        </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</ScrollView>

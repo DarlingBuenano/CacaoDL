@@ -1,0 +1,78 @@
+[
+  {
+    "clase_id": 0,
+    "nombre": "Mazorca negra",
+    "hongo": "Oomucete Phytophthora Sp.",
+    "diagnostico": [
+      "La mazorca negra o pudrición parda es causada por el oomycete Phytophthora sp. A nivel mundial es una de las enfermedades más agresivas del cacao, pudiendo causar pérdidas del 30% de la producción cacaotera y la muerte anual del 10% de las plantas por cánceres en el tallo.\n\n",
+      "En Ecuador se ha identificado a la especie Phytophthora palmivora Butler como el agente causal. Sin embargo, no ha sido considerada como una enfermedad económicamente importante, comparada con escoba de bruja o monilia, debido a que su presencia suele ser ocasional, influenciada por las condiciones ambientales y la susceptibilidad del huésped. Por este motivo no alcanzaba la gravedad de las enfermedades antes mencionadas, siendo la lluvia con temperaturas de 18 a 20ºC, el factor más importante para su desarrollo.\n\n",
+      "El ciclo de vida de Phytophthora es rápido en condiciones de alta humedad y dura entre una a dos semanas. La infección ocurre en cualquier etapa de desarrollo del fruto y puede afectar cualquier tejido de la planta, puede formar cánceres en el cuello, tallo y ramas. Las mazorcas enfermas producen esporangios que liberan zoosporas, las cuales se dispersan con el viento o el agua.\n\n",
+      "Además, las mazorcas y restos de tejido enfermo, que se dejan en el suelo son también fuente de inóculo; este patógeno completa su ciclo y sobrevive por varios años, resistiendo a los fungicidas y a la competencia microbiana. Las zoosporas producidas en el suelo se diseminan por el agua a través del salpique durante la lluvia o el riego."
+    ],
+    "sintomas": [
+      "Los síntomas iniciales en las mazorcas, se observan aproximadamente 30 horas después de ocurrida la infección (ingreso de Phytophthora), donde aparecen pequeñas manchas de aspecto acuoso en la superficie del fruto, que se tornan oscuras y cubren la mazorca.\n\n",
+      "Entre tres y cinco días después de la aparición de los primeros síntomas, las mazorcas enfermas se vuelven blandas y su interior necrosado, con un olor similar a marisco o pescado de mar.\n\n",
+      "Externamente se presenta micelio blanco, poco compacto, superficial, que las recubre y produce los esporangios. Si la infección ocurre en mazorcas casi maduras, sus almendras podrían estar sanas."
+    ],
+    "medidas_de_prevencion": [
+      "Entre las recomendaciones para el manejo de Phytophthora se debe considerar:\n",
+      "* Usar plantas resistentes a esta enfermedad especialmente para nuevas plantaciones o en zonas con alta incidencia de Phytophthora.\n",
+      "* Realizar podas (basadas en las recomendaciones previamente mencionadas) para reducir la cantidad de sombra y así permitir la reducción de fuentes de inóculo.\n",
+      "* En la cosecha semanal o quincenal de mazorcas maduras, eliminar las que estén enfermas y tratarlas fuera de la plantación. Los residuos de cosecha no deben ser amontonados alrededor del cuello de las plantas. Una práctica eficiente es la recolección de las mazorcas enfermas y su eliminación de la huerta, a un lugar donde se puedan amontonar y aplicar cal o fungicida.\n",
+      "* En infecciones severas de Phytophthora, los fungicidas serían la última opción, pudiendo efectuarse aplicaciones alternadas de oxicloruro de cobre, cobre pentahidratado o fosetil-aluminio durante los picos de producción para proteger las mazorcas o hacer aspersiones al follaje cuando se presente un ataque fuerte."
+    ],
+    "referencias": {
+      "fuentes": "Instituto Nacional de Investigaciones Agropecuarias (INIAP)",
+      "titulo": "Las enfermedades del cacao y las buenas prácticas agronómicas para su manejo",
+      "enlace": "https://repositorio.iniap.gob.ec/bitstream/41000/5747/6/iniapbeetpG178.pdf"
+    }
+  },
+  {
+    "clase_id": 1,
+    "nombre": "Monilia",
+    "hongo": "Moniliophthora roreri",
+    "diagnostico": [
+      "La monilia es causada por el hongo Moniliophthora roreri (Cif.) Evans, Stalpers, Samson & Benny, es una enfermedad endémica que ataca específicamente a las mazorcas de cacao. Fue observada por primera vez en 1817 en Colombia y en Ecuador se la reportó en 1916, ocasionando pérdidas estimadas entre el 50 al 80 % del total de la producción anual.\n\n",
+      "La enfermedad se encuentra en América, afectando a los países productores de cacao a excepción de Brasil y República Dominicana en el Caribe."
+      ],
+    "sintomas": [
+        "El hongo es muy especializado y de desarrollo lento, afecta a las mazorcas en cualquier edad. Produce conidios (esporas asexuales) sobre el fruto infectado, convirtiéndose en la principal fuente de inóculo para su diseminación.\n\n",
+        "El ciclo de vida inicia con la mazorca esporulada, sus conidios se desprenden fácilmente con la ayuda del viento y se dispersan a las mazorcas sanas, la germinación ocurre en presencia de una película de agua y penetran el fruto causando la infección.\n\n",
+        "Moniliophthora roreri coloniza intercelularmente debajo de la epidermis de la mazorca, la cual continúa su crecimiento y el hongo se desarrolla lentamente en su interior, pudiendo transcurrir entre seis a diez semanas hasta que ocurra la penetración en las células y se manifiesten los primeros síntomas de la enfermedad en forma de marchitez, deformaciones, hidrosis (presencia excesiva de agua en las células o los tejidos), madurez irregular, necrosamiento y manchas aceitosas, que posteriormente se tornan en una mancha color chocolate, sobre la cual, luego de dos a tres días crece un micelio de color blanco (estroma) donde se producen los conidios, a manera de masas polvorientas de color crema o pardo gris característico, recubriendo a la mazorca infectada.\n\n",
+        "Moniliophthora roreri puede sobrevivir hasta por nueve meses en las mazorcas momificadas que permanecen adheridas en el árbol. Por el contrario, si estas mazorcas se cortan y dejan caer al suelo, la viabilidad de las esporas se reduce después de un par de meses por la acción de microorganismos antagonistas que habitan en el suelo"
+      ],
+    "medidas_de_prevencion": [
+        "Para el manejo de monilia a continuación se recomienda:\n\n",
+        "* Mantener una sombra del 30 al 40% (el mismo que dependerá del cultivar y lugar o zona de siembra) en el cultivo de cacao que permita el paso de luz y aire para reducir el porcentaje de humedad en el ambiente.\n\n",
+        "* Podar la plantación para mantener el árbol aireado y evitar el microclima para el desarrollo de la enfermedad.\n\n",
+        "* Cosechar las mazorcas maduras cada dos semanas para evitar infecciones en las etapas finales de la maduración o cada siete días dependiendo de la producción y extensión de la finca.\n\n",
+        "* Realizar prácticas de saneamiento, que consisten en la remoción semanal de los frutos enfermos (hipertrofiados, manchados, deformes o con hinchazones), antes de su esporulación, disminuyendo el riesgo de infección en los frutos sanos."
+      ],
+      "referencias": {
+        "fuentes": "Instituto Nacional de Investigaciones Agropecuarias (INIAP)",
+        "titulo": "Las enfermedades del cacao y las buenas prácticas agronómicas para su manejo",
+        "enlace": "https://repositorio.iniap.gob.ec/bitstream/41000/5747/6/iniapbeetpG178.pdf"
+      }
+    },
+  {
+    "clase_id": 2,
+    "nombre": "Mazorca sana",
+    "hongo": "Ninguno",
+    "diagnostico": [
+      "El cacao (Theobroma cacao L.) es uno de los principales cultivos comerciales en varios países tropicales. En América, 15 % de la producción mundial se concentra en el centro y sur del continente, donde Brasil y Ecuador son los mayores productores.\n\n",
+      "En el Ecuador, el cacao es un cultivo de interés económico para los agricultores de las provincias de Los Ríos y del Guayas, cuyas almendras son de gran atractivo en los mercados internacionales por ser un producto de calidad denominado “fino de aroma”. El rendimiento promedio comercial estimado es 300 kg ha-1 año-1\n\n",
+      "Inferior al promedio mundial de 480 kg ha-1 año-1. Estos bajos rendimientos, posiblemente se atribuyan a la edad avanzada de las plantaciones, deficiente e inadecuado manejo agronómico, así como a la incidencia de enfermedades fungosas."
+    ],
+    "sintomas": [
+      "Ninguno"
+    ],
+    "medidas_de_prevencion": [
+      "Ninguno"
+    ],
+    "referencias": {
+      "fuentes": "Instituto Nacional de Investigaciones Agropecuarias (INIAP)",
+      "titulo": "Las enfermedades del cacao y las buenas prácticas agronómicas para su manejo",
+      "enlace": "https://www.agrocalidad.gob.ec/wp-content/uploads/2020/05/guia3.pdf"
+    }
+  }
+]

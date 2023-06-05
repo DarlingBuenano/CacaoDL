@@ -90,12 +90,6 @@ public class MainActivity extends AppCompatActivity {
         abrirFragment(frgWelcome, frgEstadoSalud, "frgEstadoSalud");
     }
 
-    private void abrirDiagnostico() {
-        frgDiagnostico = new Diagnostico();
-        //Corregir, poner frgCamara, frgDiag
-        abrirFragment(frgEstadoSalud, frgDiagnostico, "frgDiagnostico");
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void clicTomarUnaFoto(View view) {
         frgCapturarImagen = new CapturarImagen();

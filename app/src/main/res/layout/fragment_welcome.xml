@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -145,14 +146,14 @@
                     android:onClick="clicTomarUnaFoto"
                     android:text="@string/main_seccion2_boton1" />
 
-                <Button
+                <!--<Button
                     android:id="@+id/btn_analizar_foto_realtime"
                     style="@style/style_rect_btn_primary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/mrg_entre_elem"
                     android:onClick="clicAnalizarEnTiempoReal"
-                    android:text="@string/main_seccion2_boton2" />
+                    android:text="@string/main_seccion2_boton2" />-->
 
                 <Button
                     android:id="@+id/btn_subir_una_foto"
@@ -165,7 +166,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/mrg_entre_seccion"
@@ -215,7 +216,7 @@
                     android:layout_marginRight="@dimen/mrg_mediano"
                     android:src="@drawable/foto_cuadrada_ejemplo" />
             </LinearLayout>
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView>

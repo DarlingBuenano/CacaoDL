@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,7 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/mrg_entre_seccion"
-            android:onClick="clicVerDetalles"
             android:text="@string/estado_seccion2_accion1" />
 
         <Button
@@ -55,10 +55,9 @@
             app:backgroundTint="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="clicIntentarDeNuevo"
             android:layout_marginTop="@dimen/mrg_entre_elem"
             android:text="@string/estado_seccion2_accion2" />
 
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView>

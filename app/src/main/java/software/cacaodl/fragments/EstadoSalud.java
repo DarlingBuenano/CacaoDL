@@ -41,7 +41,7 @@ public class EstadoSalud extends Fragment {
     private TextView txtProbabilidad_2;
 
     private Button btnVerDetalles;
-    //private Button btnIntentarDeNuevo;
+    private Button btnIntentarDeNuevo;
     NumberFormat format;
     private Uri uriImage;
     private static final int tamaño_imagen = 640;
@@ -85,13 +85,19 @@ public class EstadoSalud extends Fragment {
 
         btnVerDetalles = root.findViewById(R.id.btn_ver_detalles);
         btnVerDetalles.setOnClickListener(onCLicVerDiagnostico);
-        //btnIntentarDeNuevo = root.findViewById(R.id.btn_intentar_de_nuevo);
+        btnIntentarDeNuevo = root.findViewById(R.id.btn_intentar_de_nuevo);
+        btnIntentarDeNuevo.setOnClickListener(onClicIntentarDeNuevo);
         return root;
     }
 
     private final View.OnClickListener onCLicVerDiagnostico = view -> {
         Fragment frgDiagnostico = new Diagnostico(claseId);
         abrirFragment(this, frgDiagnostico, "frgDiagnostico");
+    };
+
+    private final View.OnClickListener onClicIntentarDeNuevo = view -> {
+        Fragment frgWelcome = getActivity().getSupportFragmentManager().findFragmentByTag("frgWelcome");
+        regresarAlFragment(this, frgWelcome, true);
     };
 
     @Override
@@ -139,10 +145,11 @@ public class EstadoSalud extends Fragment {
             }
 
             for (int i = 0; i < probabilidadesJson.length(); i++) {
-                resultado = resultado + "Objeto: 0" + i+1;
+                resultado = resultado + "Mazorca: " + (i+1);
                 resultado = resultado + "\n    Categoría: " + probabilidadesJson.getJSONObject(i).getString("categoria");
-                //String confianza = format.format(probabilidadesJson.getJSONObject(0).getString("confianza"));
-                resultado = resultado + "\n    Confianza: " + probabilidadesJson.getJSONObject(i).getString("confianza");
+                //String confianza = format.format(probabilidadesJson.getJSONObject(i).getString("confianza"));
+                String confianza = format.format(probabilidadesJson.getJSONObject(i).getDouble("confianza"));
+                resultado = resultado + "\n    Confianza: " + confianza;
                 resultado = resultado + "\n\n";
 
                 float left = (float)probabilidadesJson.getJSONObject(i).getDouble("left");
@@ -184,5 +191,30 @@ public class EstadoSalud extends Fragment {
                 .add(R.id.frg_container_view, frgPosterior, tagFrgPosterior)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commit();
+    }
+
+    private void regresarAlFragment(Fragment frgActual, Fragment frgAnterior, boolean eliminarActual) {
+        try {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(
+                    R.anim.enter_left_to_rigth,
+                    R.anim.exit_left_to_rigth,
+                    R.anim.enter_rigth_to_left,
+                    R.anim.exit_rigth_to_left);
+            transaction.hide(frgActual);
+            transaction.show(frgAnterior);
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            if (eliminarActual) {
+                transaction.remove(this);
+            }
+            transaction.commit();
+            try {
+                this.finalize();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
+        }
     }
 }

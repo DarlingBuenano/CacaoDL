@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0E0E0E"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".fragments.CapturarImagen">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewCamera"
-        android:layout_width="match_parent"
-        android:layout_height="700dp" />
+        android:layout_width="400dp"
+        android:layout_height="400dp" />
 
     <Button
         android:id="@+id/capturarImagen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="Tomar foto" />
 
 </LinearLayout>
